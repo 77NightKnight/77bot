@@ -63,7 +63,7 @@ bot.on ('message', msg=>{
                 });
             } else {
                 msg.reply('You didn\'t mention the user to ban!')
-            }
+                   }
             break;
         case 'help':
             const embed = new Discord.RichEmbed()
