@@ -8,7 +8,7 @@ const prefix = '!';
 
 bot.on('ready', () =>{
     console.log('77 Is Online');
-    bot.user.setActivity('77 Discord!', { type: 'STREAMING'}).catch(console.error);
+    bot.user.setActivity('!help', { type: 'LISTENING'}).catch(console.error);
 })
 bot.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find(ch => ch.name === 'welcome');
