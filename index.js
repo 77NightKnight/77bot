@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client();
+const {Client, RichEmbed} = require('discord.js');
+const bot = new Client();
 const token = process.env.token;
 
 
@@ -67,14 +67,14 @@ bot.on ('message', msg=>{
             break;
             
         case 'help':
-            const embed = new Discord.RichEmbed()
+            const embed = new RichEmbed()
             .setTitle('Moderator Plugin Commands')
             .addField('!ban [member] (optional reason)', 'Bans a member from the server')
             .addField('!clear (count)', 'Clears messages in a particular channel')
             .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
             .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
-            msg.channel.sendEmbed(embed);
+            msg.author.send(embed);
         break;
         }
     });
