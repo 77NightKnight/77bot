@@ -64,23 +64,23 @@ bot.on ('message', msg=>{
         break;
             
         case 'help':
-                let embed1 = new RichEmbed()
+                let embed1 = new RichEmbed().catch(console.error);
                 .setTitle('Moderator Plugin Commands')
                 .addField('!ban [member] (optional reason)', 'Bans a member from the server')
                 .addField('!clear (count)', 'Clears messages in a particular channel')
                 .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
                 .setColor('0x30E5BB')
                 .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
-                msg.author.send(embed1)
+                msg.author.send(embed1).catch(console.error);
                 
-                let embed2 = new RichEmbed()
+                let embed2 = new RichEmbed().catch(console.error);
                 .setTitle('Music Plugin Commands(Beta)')
                 .addField('!play [link]', 'Adds the song to the queue and plays it if the queue is empty')
                 .addField('!skip', 'Skip to the next song')
                 .addField('!stop', 'Stops the current playing song and leaves the voice channel')
                 .setColor('0x30E5BB')
                 .setThumbnail('https://i.imgur.com/1J243X9.png')
-                msg.author.send(embed2);
+                msg.author.send(embed2).catch(console.error);
 
             
             
@@ -99,7 +99,7 @@ bot.on ('message', msg=>{
                         play(connection, msg);
                     
                     } else {
-                        connection.disconnect();
+                        connection.disconnect().catch(console.error);
                     }
                 });
 
@@ -126,7 +126,7 @@ bot.on ('message', msg=>{
             server.queue.push(args[1]);
 
             if(!msg.guild.voiceConnection) msg.member.voiceChannel.join().then(function(connection){
-                play(connection, msg);
+                play(connection, msg).catch(console.error);
             })
 
 
@@ -136,7 +136,7 @@ bot.on ('message', msg=>{
         case 'skip':
             var server = servers[msg.guild.id];
             if(server.dispatcher) server.dispatcher.end();
-            msg.channel.send('Skipping the song!');
+            msg.channel.send('Skipping the song!').catch(console.error);
         
         break;
         
@@ -151,7 +151,7 @@ bot.on ('message', msg=>{
                 console.log('stopped the queue')
             }
 
-            if(MessageChannel.guild.connection) msg.guild.voiceConnection.disconnect();
+            if(MessageChannel.guild.connection) msg.guild.voiceConnection.disconnect().catch(console.error);
         
         break;
     }
