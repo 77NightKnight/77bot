@@ -76,6 +76,11 @@ bot.on ('message', msg=>{
             .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
             .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
+            const embed = new RichEmbed()
+            .setTitle('Music Plugin Commands(Beta)')
+            .addField('!play [song]', 'Plays the linked song in the voice channel!')
+            .addField('!skip', 'Skips the current song!')
+            addField('!stop', 'Stops music and clears queue!')
             msg.author.send(embed);
         break;
 
@@ -130,6 +135,7 @@ bot.on ('message', msg=>{
             var server = servers[msg.guild.id];
             if(server.dispatcher) server.dispatcher.end();
             msg.channel.send('Skipping the song!')
+        
         break;
         
         case 'stop':
@@ -144,6 +150,7 @@ bot.on ('message', msg=>{
             }
 
             if(MessageChannel.guild.connection) msg.guild.voiceConnection.disconnect();
+        
         break;
     }
     });
