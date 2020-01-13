@@ -76,7 +76,11 @@ bot.on ('message', msg=>{
             .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
             msg.author.send(embed);
         break;
-        }
+        
+        //case 'u on bro?':
+            
+        //break;
+    }
     });
 
 bot.login(token)
