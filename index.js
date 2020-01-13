@@ -1,22 +1,22 @@
 const Discord = require('discord.js');
-const Client = new Discord.Client();
+const bot = new Discord.Client();
 const token = process.env.token;
 
 
-const version = '1.0.5'
+const version = '1.1.0'
 const prefix = '!';
 
-Client.on('ready', () =>{
+bot.on('ready', () =>{
     console.log('77 Is Online');
-    Client.user.setActivity('77 Discord!')
+    bot.user.setActivity('77 Discord!');
 })
-Client.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find(ch => ch.name === 'welcome');
     if (!channel) return;
     channel.send('Welcome to 77, ' + member);
   });
 
-Client.on ('message', msg=>{
+bot.on ('message', msg=>{
     if (!msg.guild) return;
     
     const user = msg.mentions.users.first();
@@ -73,4 +73,4 @@ Client.on ('message', msg=>{
         }
     });
 
-Client.login(token)
+bot.login(token)
