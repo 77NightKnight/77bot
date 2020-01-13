@@ -74,7 +74,7 @@ bot.on ('message', msg=>{
                 .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
                 .setColor('0x30E5BB')
                 .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
-                channel.send(embed1)
+                msg.author.send(embed1)
                 //let embed2 = new RichEmbed()
                 //.setTitle('Music Plugin Commands(Beta)')
                 //.addField('!play [song]', 'Plays the linked song in the voice channel!')
