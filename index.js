@@ -25,12 +25,10 @@ bot.on ('message', msg=>{
 
     switch(args[0]){
         case 'clear':
-            if(!msg.channel.member.roles.find(r => r.name === "💼 | Executive Team") || !MessageChannel.member.roles.find(r => r.name === '📂 | Administration Team')) return msg.channel.send('YOU DO NOT HAVE PERMISSIONS')
             if(!args[1]) return msg.reply('Invalid! Please type the number of messages to clear!')
             msg.channel.bulkDelete(args[1]).catch(console.error);
             break;
         case 'kick':
-            if(!msg.channel.member.roles.find(r => r.name === "💼 | Executive Team") || !MessageChannel.member.roles.find(r => r.name === '📂 | Administration Team')) return msg.channel.send('YOU DO NOT HAVE PERMISSIONS')
             if (user) {
                 const member = msg.guild.member(user);
                 
@@ -50,7 +48,6 @@ bot.on ('message', msg=>{
                     }
         break;
         case 'ban':
-            if(!msg.channel.member.roles.find(r => r.name === "💼 | Executive Team") || !MessageChannel.member.roles.find(r => r.name === '📂 | Administration Team')) return msg.channel.send('YOU DO NOT HAVE PERMISSIONS')    
             const member = msg.guild.member(user);    
             if (member) {
                 member.ban({
