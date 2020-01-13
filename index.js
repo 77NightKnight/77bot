@@ -87,8 +87,8 @@ bot.on ('message', msg=>{
                 //.then(msg => {
 
                 //channel.send(embed2);
-                //});
-            }
+
+            
             
         break;
 
