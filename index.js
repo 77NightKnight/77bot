@@ -99,7 +99,7 @@ bot.on ('message', msg=>{
                         play(connection, msg);
                     
                     } else {
-                        connection.disconnect().catch(console.error);
+                        connection.disconnect()
                     }
                 });
 
