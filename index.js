@@ -24,19 +24,6 @@ Client.on ('message', msg=>{
     let args = msg.content.substring(prefix.length).split(" ");
 
     switch(args[0]){
-        case 'ping':
-            msg.channel.sendMessage('pong!');
-        break;
-        case 'website':
-            msg.channel.sendMessage('77 Doesn\t Have A Website!')
-            break;
-        case 'info':
-            if(args[1] === 'version'){
-                msg.channel.sendMessage(version);
-            }else{
-                msg.reply('What info are you refering to? Try !info version');
-            break;
-            }
         case 'clear':
             if(!args[1]) return msg.reply('Invalid! Please type the number of messages to clear!')
             msg.channel.bulkDelete(args[1]);
@@ -79,7 +66,6 @@ Client.on ('message', msg=>{
             .addField('!ban [member] (optional reason)', 'Bans a member from the server')
             .addField('!clear (count)', 'Clears messages in a particular channel')
             .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
-            .addField('!info [type]', 'Displays bot version')
             .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
             msg.channel.sendEmbed(embed);
