@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const Client = new Discord.Client();
-const version = '1.0.5'
+Client.login(process.env.token)
 
+
+const version = '1.0.5'
 const prefix = '!';
 
 Client.on('ready', () =>{
@@ -84,4 +86,3 @@ Client.on ('message', msg=>{
         }
     });
 
-Client.login('NjY2MTQ1NzM3NTE1NzI4OTAz.Xhv6mQ.0BkhEYd0Dw_6TtoVZ5hoZ1pJnjE')
