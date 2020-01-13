@@ -1,10 +1,12 @@
 const {Client, RichEmbed} = require('discord.js');
 const bot = new Client();
 const token = process.env.token;
-
-
-const version = '1.1.1'
+const version = '1.1.5'
 const prefix = '!';
+const ytdl = require("ytdl-core");
+
+var servers = {};
+
 
 bot.on('ready', () =>{
     console.log('77 Is Online');
@@ -76,10 +78,54 @@ bot.on ('message', msg=>{
             .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
             msg.author.send(embed);
         break;
+
+        case 'play':
         
-        //case 'u on bro?':
-            
-        //break;
+        
+            function play(connection, msg){
+                var server = servers[msg.guild.id];
+
+                server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
+
+                server.queue.shift();
+
+                server.dispatcher.on("end", function(){
+                    if(server.queue[0]){
+                        play(connection, msg);
+                    
+                    } else {
+                        connection.disconnect();
+                    }
+                });
+
+
+
+            }
+        
+            if(!args[1]){
+                msg.channel.send('What would you like to play?(Provide a link!)');
+                return;
+            }
+
+            if(!msg.member.voiceChannel){
+                msg.channel.send('You must be in a channel to play music!')
+                return;
+            }
+            if(!servers[msg.guild.id]) servers[msg.guild.id] = {
+                queue: []
+            }
+
+            var server = servers[msg.guild.id];
+
+            server.queue.push(args[1]);
+
+            if(!msg.guild.voiceConnection) msg.member.voiceChannel.join().then(function(connection){
+                play(connection, msg);
+            })
+
+
+
+        break;
     }
     });
 
