@@ -64,7 +64,7 @@ bot.on ('message', msg=>{
         break;
             
         case 'help':
-                let embed1 = new RichEmbed().catch(console.error);
+                let embed1 = new RichEmbed()
                 .setTitle('Moderator Plugin Commands')
                 .addField('!ban [member] (optional reason)', 'Bans a member from the server')
                 .addField('!clear (count)', 'Clears messages in a particular channel')
