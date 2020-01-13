@@ -70,7 +70,6 @@ bot.on ('message', msg=>{
             function send2Embeds(msg) {
                 let channel = msg.channel;
             
-                // next create rich embeds
                 let embed1 = new RichEmbed()
                 .setTitle('Moderator Plugin Commands')
                 .addField('!ban [member] (optional reason)', 'Bans a member from the server')
@@ -78,25 +77,21 @@ bot.on ('message', msg=>{
                 .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
                 .setColor('0x30E5BB')
                 .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
-                
-                    
-                
-            
-                let embed2 = new RichEmbed()
-                .setTitle('Music Plugin Commands(Beta)')
-                .addField('!play [song]', 'Plays the linked song in the voice channel!')
-                .addField('!skip', 'Skips the current song')
-                .addField('!stop', 'Stops music and clears queue!')
-                .setThumbnail('https://i.imgur.com/1J243X9.png')
+                channel.send(embed1)
+                //let embed2 = new RichEmbed()
+                //.setTitle('Music Plugin Commands(Beta)')
+                //.addField('!play [song]', 'Plays the linked song in the voice channel!')
+                //.addField('!skip', 'Skips the current song')
+                //.addField('!stop', 'Stops music and clears queue!')
+                //.setThumbnail('https://i.imgur.com/1J243X9.png')
             
                 // send embed to channel
-                channel.send(embed1)
-                .then(msg => {
+                //channel.send(embed1)
+                //.then(msg => {
 
-                channel.send(embed2);
-                });
+                //channel.send(embed2);
+                //});
             }
-            
             
         break;
 
