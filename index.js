@@ -78,9 +78,9 @@ bot.on ('message', msg=>{
                 
                 let embed2 = new RichEmbed()
                 .setTitle('Music Plugin Commands(Beta)')
-                .addField('!play [song]', 'Plays the linked song in the voice channel!')
-                .addField('!skip', 'Skips the current song')
-                .addField('!stop', 'Stops music and clears queue!')
+                .addField('!play [link]', 'Adds the song to the queue and plays it if the queue is empty')
+                .addField('!skip', 'Skip to the next song')
+                .addField('!stop', 'Stops the current playing song and leaves the voice channel')
                 .setColor('0x30E5BB')
                 .setThumbnail('https://i.imgur.com/1J243X9.png')
                 msg.author.send(embed2);
