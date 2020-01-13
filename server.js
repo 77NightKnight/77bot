@@ -1,20 +1,20 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const Client = new Discord.Client();
 const version = '1.0.5'
 
 const prefix = '!';
 
-bot.on('ready', () =>{
+Client.on('ready', () =>{
     console.log('77 Is Online');
 
 })
-bot.on('guildMemberAdd', member => {
+Client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find(ch => ch.name === 'welcome');
     if (!channel) return;
     channel.send('Welcome to 77, ' + member);
   });
 
-bot.on ('message', msg=>{
+Client.on ('message', msg=>{
     if (!msg.guild) return;
     
     const user = msg.mentions.users.first();
@@ -84,4 +84,4 @@ bot.on ('message', msg=>{
         }
     });
 
-bot.login('NjY2MTQ1NzM3NTE1NzI4OTAz.Xhv6mQ.0BkhEYd0Dw_6TtoVZ5hoZ1pJnjE');
+Client.login('NjY2MTQ1NzM3NTE1NzI4OTAz.Xhv6mQ.0BkhEYd0Dw_6TtoVZ5hoZ1pJnjE')
