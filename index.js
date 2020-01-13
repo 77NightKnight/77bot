@@ -76,8 +76,8 @@ bot.on ('message', msg=>{
             .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
             .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
-            msg.author.send(embed);
-            new RichEmbed()
+            msg.author.send(embed).then(() => {
+                new RichEmbed()
             .setTitle('Music Plugin Commands(Beta)')
             .addField('!play [song]', 'Plays the linked song in the voice channel!')
             .addField('!skip', 'Skips the current song')
@@ -85,6 +85,8 @@ bot.on ('message', msg=>{
             .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/1J243X9.png')
             msg.author.send(embed);
+            })
+            
         break;
 
         case 'play':
@@ -137,7 +139,7 @@ bot.on ('message', msg=>{
         case 'skip':
             var server = servers[msg.guild.id];
             if(server.dispatcher) server.dispatcher.end();
-            msg.channel.send('Skipping the song!')
+            msg.channel.send('Skipping the song!');
         
         break;
         
