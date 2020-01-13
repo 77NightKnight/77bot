@@ -99,16 +99,17 @@ bot.on ('message', msg=>{
                 });
 
 
-
+                return;
             }
-        
+            
+
             if(!args[1]){
                 msg.channel.send('What would you like to play?(Provide a link!)');
                 return;
             }
 
             if(!msg.member.voiceChannel){
-                msg.channel.send('You must be in a channel to play music!')
+                msg.channel.send('You must be in a channel to play music!');
                 return;
             }
             if(!servers[msg.guild.id]) servers[msg.guild.id] = {
