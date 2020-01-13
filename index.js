@@ -33,6 +33,7 @@ bot.on ('message', msg=>{
             if(!MessageChannel.member.roles.find(r => r.name === "💼 | Executive Team") || !MessageChannel.member.roles.find(r => r.name === '📂 | Administration Team')) return msg.channel.send('YOU DO NOT HAVE PERMISSIONS')
             if (user) {
                 const member = msg.guild.member(user);
+                
                 if (member) {
                     member.kick('Optional reason that will display in the audit logs').then(() => {
                         msg.reply('Successfully kicked ' + member);
@@ -49,8 +50,8 @@ bot.on ('message', msg=>{
                     }
             break;
         case 'ban':
+            if(!MessageChannel.member.roles.find(r => r.name === "💼 | Executive Team") || !MessageChannel.member.roles.find(r => r.name === '📂 | Administration Team')) return msg.channel.send('YOU DO NOT HAVE PERMISSIONS')    
             const member = msg.guild.member(user);    
-            if(!MessageChannel.member.roles.find(r => r.name === "💼 | Executive Team") || !MessageChannel.member.roles.find(r => r.name === '📂 | Administration Team')) return msg.channel.send('YOU DO NOT HAVE PERMISSIONS')
             if (member) {
                 member.ban({
                     reason: 'They were bad'
@@ -63,6 +64,7 @@ bot.on ('message', msg=>{
             } else {
                 msg.reply('You didn\'t mention the user to ban!')
             }
+            break;
         case 'help':
             const embed = new Discord.RichEmbed()
             .setTitle('Moderator Plugin Commands')
