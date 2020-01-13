@@ -80,7 +80,8 @@ bot.on ('message', msg=>{
             .setTitle('Music Plugin Commands(Beta)')
             .addField('!play [song]', 'Plays the linked song in the voice channel!')
             .addField('!skip', 'Skips the current song')
-            addField('!stop', 'Stops music and clears queue!')
+            .addField('!stop', 'Stops music and clears queue!')
+            .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/1J243X9.png')
             msg.author.send(embed);
         break;
