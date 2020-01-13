@@ -65,6 +65,7 @@ bot.on ('message', msg=>{
                 msg.reply('You didn\'t mention the user to ban!')
                    }
             break;
+            
         case 'help':
             const embed = new Discord.RichEmbed()
             .setTitle('Moderator Plugin Commands')
