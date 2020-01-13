@@ -8,7 +8,7 @@ const prefix = '!';
 
 Client.on('ready', () =>{
     console.log('77 Is Online');
-    Client.user.setStatus('Join 77 Today!')
+    Client.user.setActivity('77 Discord!')
 })
 Client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find(ch => ch.name === 'welcome');
