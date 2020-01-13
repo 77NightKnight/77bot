@@ -3,12 +3,12 @@ const bot = new Discord.Client();
 const token = process.env.token;
 
 
-const version = '1.1.0'
+const version = '1.1.1'
 const prefix = '!';
 
 bot.on('ready', () =>{
     console.log('77 Is Online');
-    bot.user.setActivity('77 Discord!');
+    bot.user.setActivity('77 Discord!', { type: 'STREAMING'}).catch(console.error);
 })
 bot.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find(ch => ch.name === 'welcome');
@@ -26,7 +26,7 @@ bot.on ('message', msg=>{
     switch(args[0]){
         case 'clear':
             if(!args[1]) return msg.reply('Invalid! Please type the number of messages to clear!')
-            msg.channel.bulkDelete(args[1]);
+            msg.channel.bulkDelete(args[1]).catch(console.error);
             break;
         case 'kick':
             if (user) {
