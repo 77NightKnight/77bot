@@ -67,26 +67,54 @@ bot.on ('message', msg=>{
         break;
             
         case 'help':
-            let embed1 = new RichEmbed()          
-            .setTitle('Moderator Plugin Commands')
-            .addField('!ban [member] (optional reason)', 'Bans a member from the server')
-            .addField('!clear (count)', 'Clears messages in a particular channel')
-            .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
-            .setColor('0x30E5BB')
-            .setThumbnail('https://i.imgur.com/JsgxK3Y.png');
+            //let embed1 = new RichEmbed()          
+            //.setTitle('Moderator Plugin Commands')
+            //.addField('!ban [member] (optional reason)', 'Bans a member from the server')
+            //.addField('!clear (count)', 'Clears messages in a particular channel')
+            //.addField('!kick [member] (optional reason)', 'Kicks a member from the server')
+            //.setColor('0x30E5BB')
+            //.setThumbnail('https://i.imgur.com/JsgxK3Y.png');
            
-            let embed2 = new RichEmbed()
-            .setTitle('Music Plugin Commands(Beta)')
-            .addField('!play [song]', 'Plays the linked song in the voice channel!')
-            .addField('!skip', 'Skips the current song')
-            .addField('!stop', 'Stops music and clears queue!')
-            .setColor('0x30E5BB')
-            .setThumbnail('https://i.imgur.com/1J243X9.png');
+            //let embed2 = new RichEmbed()
+            //.setTitle('Music Plugin Commands(Beta)')
+            //.addField('!play [song]', 'Plays the linked song in the voice channel!')
+            //.addField('!skip', 'Skips the current song')
+            //.addField('!stop', 'Stops music and clears queue!')
+            //.setColor('0x30E5BB')
+            //.setThumbnail('https://i.imgur.com/1J243X9.png');
             
-            msg.author.send(embed1)
-            .then(msg => {
-                msg.author.send(embed2);
-            });
+            //msg.author.send(embed1)
+            //.then(msg => {
+                //msg.author.send(embed2);
+            //});
+
+            function send2Embeds(message) {
+                let channel = message.channel;
+            
+                // next create rich embeds
+                let embed1 = new Discord.RichEmbed({
+                    title: 'embed1',
+                    description: 'description1',
+                    author: {
+                        name: 'author1'
+                    }
+                });
+            
+                let embed2 = new Discord.RichEmbed({
+                    title: 'embed2',
+                    description: 'description2',
+                    author: {
+                        name: 'author2'
+                    }
+                });
+            
+                // send embed to channel
+                channel.send(embed1)
+                .then(msg => {
+                    // after the first is sent, send the 2nd (makes sure it's in the correct order)
+                    channel.send(embed2);
+                });
+            }
             
             
         break;
