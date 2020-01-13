@@ -75,18 +75,14 @@ bot.on ('message', msg=>{
                 .setColor('0x30E5BB')
                 .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
                 msg.author.send(embed1)
-                //let embed2 = new RichEmbed()
-                //.setTitle('Music Plugin Commands(Beta)')
-                //.addField('!play [song]', 'Plays the linked song in the voice channel!')
-                //.addField('!skip', 'Skips the current song')
-                //.addField('!stop', 'Stops music and clears queue!')
-                //.setThumbnail('https://i.imgur.com/1J243X9.png')
-            
-                // send embed to channel
-                //channel.send(embed1)
-                //.then(msg => {
-
-                //channel.send(embed2);
+                
+                let embed2 = new RichEmbed()
+                .setTitle('Music Plugin Commands(Beta)')
+                .addField('!play [song]', 'Plays the linked song in the voice channel!')
+                .addField('!skip', 'Skips the current song')
+                .addField('!stop', 'Stops music and clears queue!')
+                .setThumbnail('https://i.imgur.com/1J243X9.png')
+                msg.author.send(embed2);
 
             
             
