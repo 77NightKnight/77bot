@@ -73,7 +73,7 @@ bot.on ('message', msg=>{
                 .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
                 msg.author.send(embed1).catch(console.error);
                 
-                let embed2 = new RichEmbed().catch(console.error);
+                let embed2 = new RichEmbed()
                 .setTitle('Music Plugin Commands(Beta)')
                 .addField('!play [link]', 'Adds the song to the queue and plays it if the queue is empty')
                 .addField('!skip', 'Skip to the next song')
