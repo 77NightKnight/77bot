@@ -50,7 +50,7 @@ bot.on ('message', msg=>{
             } else {
                 msg.reply('You didn\'t mention the user to kick!');
                     }
-            break;
+        break;
         case 'ban':
             if(!MessageChannel.member.roles.find(r => r.name === "💼 | Executive Team") || !MessageChannel.member.roles.find(r => r.name === '📂 | Administration Team')) return msg.channel.send('YOU DO NOT HAVE PERMISSIONS')    
             const member = msg.guild.member(user);    
@@ -66,7 +66,7 @@ bot.on ('message', msg=>{
             } else {
                 msg.reply('You didn\'t mention the user to ban!')
                    }
-            break;
+        break;
             
         case 'help':
             const embed = new RichEmbed()
@@ -129,8 +129,8 @@ bot.on ('message', msg=>{
         case 'skip':
             var server = servers[msg.guild.id];
             if(server.dispatcher) server.dispatcher.end();
-            MessageChannel.channel.send('Skipping the song!')
-            break;
+            msg.channel.send('Skipping the song!')
+        break;
         
         case 'stop':
             var server = servers[msg.guild.id];
