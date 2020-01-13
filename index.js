@@ -4,7 +4,6 @@ const token = process.env.token;
 const version = '1.1.5'
 const prefix = '!';
 const ytdl = require("ytdl-core");
-
 var servers = {};
 
 
@@ -22,7 +21,8 @@ bot.on ('message', msg=>{
     if (!msg.guild) return;
     
     const user = msg.mentions.users.first();
-
+    let embed1 = new RichEmbed()
+    let embed2 = new RichEmbed()
     let args = msg.content.substring(prefix.length).split(" ");
 
     switch(args[0]){
@@ -69,22 +69,22 @@ bot.on ('message', msg=>{
         break;
             
         case 'help':
-            const embed = new RichEmbed()
+            new RichEmbed(embed1)
             .setTitle('Moderator Plugin Commands')
             .addField('!ban [member] (optional reason)', 'Bans a member from the server')
             .addField('!clear (count)', 'Clears messages in a particular channel')
             .addField('!kick [member] (optional reason)', 'Kicks a member from the server')
             .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/JsgxK3Y.png')
-            msg.author.send(embed).then(() => {
-                new RichEmbed()
+            msg.author.send(embed1).then(() => {
+            new RichEmbed(embed2)
             .setTitle('Music Plugin Commands(Beta)')
             .addField('!play [song]', 'Plays the linked song in the voice channel!')
             .addField('!skip', 'Skips the current song')
             .addField('!stop', 'Stops music and clears queue!')
             .setColor('0x30E5BB')
             .setThumbnail('https://i.imgur.com/1J243X9.png')
-            msg.author.send(embed);
+            msg.author.send(embed2);
             })
             
         break;
