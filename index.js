@@ -151,7 +151,7 @@ bot.on ('message', msg=>{
                 console.log('stopped the queue')
             }
 
-            if(MessageChannel.guild.connection) msg.guild.voiceConnection.disconnect().catch(console.error);
+            if(msg.guild.connection) msg.guild.voiceConnection.disconnect().catch(console.error);
         
         break;
     }
