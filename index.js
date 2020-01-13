@@ -80,9 +80,7 @@ bot.on ('message', msg=>{
         break;
 
         case 'play':
-        
-        
-            function play(connection, msg){
+        function play(connection, msg){
                 var server = servers[msg.guild.id];
 
                 server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
@@ -126,6 +124,26 @@ bot.on ('message', msg=>{
 
 
 
+        break;
+        
+        case 'skip':
+            var server = servers[msg.guild.id];
+            if(server.dispatcher) server.dispatcher.end();
+            MessageChannel.channel.send('Skipping the song!')
+            break;
+        
+        case 'stop':
+            var server = servers[msg.guild.id];
+            if(msg.guild.voiceConnection){
+                for(var i = server.queue.length -1; i >=0 i--){
+                    server.queue.splice(i, 1);
+                }
+                server.dispatcher.end();
+                msg.channel.send("Ending the queue now!")
+                console.log('stopped the queue')
+            }
+
+            if(MessageChannel.guild.connection) msg.guild.voiceConnection.disconnect();
         break;
     }
     });
