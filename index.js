@@ -140,7 +140,7 @@ bot.on ('message', async msg => {
         case 'skip':
             var server = servers[msg.guild.id];
             if(server.dispatcher) server.dispatcher.end();
-            msg.channel.send('Skipping the song!').catch(console.error);
+            msg.channel.send('Skipping the song!');
         
         break;
         
