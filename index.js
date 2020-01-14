@@ -4,8 +4,13 @@ const token = process.env.token;
 const version = '1.1.5'
 const prefix = '!';
 const ytdl = require("ytdl-core");
+const streamOptions = {
+    seek: 0,
+    volume: 1
+};
 var servers = {};
 
+const queue = new Map();
 
 bot.on('ready', () =>{
     console.log('77 Is Online');
@@ -17,9 +22,8 @@ bot.on('guildMemberAdd', member => {
     channel.send('Welcome to 77, ' + member);
   });
 
-bot.on ('message', msg=>{
+bot.on ('message', async msg => {
     if (!msg.guild) return;
-    
     const user = msg.mentions.users.first();
     let args = msg.content.substring(prefix.length).split(" ");
 
@@ -89,13 +93,13 @@ bot.on ('message', msg=>{
         case 'play':
         function play(connection, msg){
                 var server = servers[msg.guild.id];
-
                 server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
 
                 server.queue.shift();
 
                 server.dispatcher.on("end", function(){
                     if(server.queue[0]){
+                        dispatcher.setVolume(1.5)
                         play(connection, msg);
                     
                     } else {
@@ -154,7 +158,15 @@ bot.on ('message', msg=>{
             if(msg.guild.connection) msg.guild.voiceConnection.disconnect().catch(console.error);
         
         break;
-    }
-    });
+        
+        case '':
+
+
+        
+
+
+        break;
+}});
+        
 
 bot.login(token)
