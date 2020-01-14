@@ -163,7 +163,7 @@ bot.on ('message', async msg => {
         
         break;
         
-        case 'u on bro?':
+        case 'u-on-bro?':
             let embed3 = new RichEmbed()
             .setTitle('u on bro?')
             .setDescription('FORNITE?')
