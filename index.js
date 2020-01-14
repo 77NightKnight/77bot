@@ -142,9 +142,13 @@ bot.on ('message', async msg => {
             if(server.dispatcher) server.dispatcher.end();
             msg.channel.send('Skipping the song!');
         
+        
         break;
         
-        case 'stop':
+        
+        
+        
+            case 'stop':
             var server = servers[msg.guild.id];
             if(msg.guild.voiceConnection){
                 for(var i = server.queue.length -1; i >=0; i--){
@@ -159,13 +163,14 @@ bot.on ('message', async msg => {
         
         break;
         
-        case '':
-
-
-        
-
-
-        break;
+        case 'u on bro?':
+            let embed3 = new RichEmbed()
+            .setTitle('u on bro?')
+            .setDescription('FORNITE?')
+            .setThumbnail('https://imgur.com/r/FORTnITE/XXCo5mC')
+            .setAuthor(msg.author.username)
+            msg.channel.send(embed3)
+            break;
 }});
         
 
